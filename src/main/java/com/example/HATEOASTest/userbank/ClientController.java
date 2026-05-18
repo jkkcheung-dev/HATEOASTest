@@ -1,5 +1,6 @@
 package com.example.HATEOASTest.userbank;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -8,9 +9,10 @@ import org.springframework.web.bind.annotation.*;
 public class ClientController {
 
     private final ClientService clientService;
-
-    public ClientController(ClientService clientService) {
+    private final ObjectMapper clientMapper;
+    public ClientController(ClientService clientService, ObjectMapper clientMapper) {
         this.clientService = clientService;
+        this.clientMapper = clientMapper;
     }
 
     @PostMapping
